@@ -32,6 +32,15 @@ namespace G_NET106_linq_01
                 Console.WriteLine("Name:" + item.ProductName + " Price:" + item.UnitPrice + "$");
             }
             #endregion
+
+            #region Question05
+            //Get all products that are in stock (UnitsInStock > 0) and belong to the "Condiments" category
+            var inStock = ProductList.Where(p => p.UnitsInStock > 0 && p.Category.Contains("Condiments"));
+            foreach (var item in inStock)
+            {
+                Console.WriteLine("Name:"+item.ProductName+" Stock:"+item.UnitsInStock+" Category:"+item.Category);
+            }
+            #endregion
         }
     }
 }
