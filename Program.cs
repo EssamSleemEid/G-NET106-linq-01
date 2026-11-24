@@ -1,4 +1,6 @@
 ﻿using LINQ.Models;
+using System.Drawing;
+using System.Xml.Linq;
 using static LINQ.DataSources.Source;
 namespace G_NET106_linq_01
 {
@@ -39,6 +41,15 @@ namespace G_NET106_linq_01
             foreach (var item in inStock)
             {
                 Console.WriteLine("Name:"+item.ProductName+" Stock:"+item.UnitsInStock+" Category:"+item.Category);
+            }
+            #endregion
+
+            #region Question06
+            //​Create a new anonymous type with three properties: ●​Name → the product name●​Price → the unit price●​StockStatus → a string: "Available" if UnitsInStock > 0, otherwise "Out of Stock" ●​Print the result.
+            var q6 = ProductList.Select(p => new{ Name = p.ProductName, Price = p.UnitPrice, StockStatus = p.UnitsInStock > 0 ? "Available" : "Out of Stock"});
+            foreach (var item in q6)
+            {
+                Console.WriteLine("Name:"+item.Name+" Price:"+item.Price+"$"+" Status:"+item.StockStatus);
             }
             #endregion
         }
