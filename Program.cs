@@ -61,6 +61,15 @@ namespace G_NET106_linq_01
                 Console.WriteLine(item);
             }
             #endregion
+
+            #region Question11
+            //Show position number alongside ProductName
+            var ProductNamePosition = ProductList.Select((p, index) => new{ Position = index + 1, p.ProductName});
+            foreach (var item in ProductNamePosition)
+            {
+                Console.WriteLine("Position:"+item.Position+" Product:"+item.ProductName);
+            }
+            #endregion
         }
     }
 }
